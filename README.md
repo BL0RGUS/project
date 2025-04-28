@@ -1,4 +1,4 @@
-#Comparison of Secure Inference Frameworks using Homomorphic Encryption
+# Comparison of Secure Inference Frameworks using Homomorphic Encryption
 This repository implements four Fully Hommorphic Encryptioon (FHE) enabled Secure Inference Frameworks. Namely we implememt:
 1. [ConcreteML](https://github.com/zama-ai/concrete-ml/tree/release/1.9.x)
 2. [REDsec](https://github.com/TrustworthyComputing/REDsec)
