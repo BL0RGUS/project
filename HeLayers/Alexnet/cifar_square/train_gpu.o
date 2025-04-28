@@ -1,0 +1,132 @@
+2025-04-24 10:59:19.838098: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-24 10:59:21.931001: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home2/fsgf66/project/HeLayers/Alexnet/cifar_square/generate_cifar.py:29: is_gpu_available (from tensorflow.python.framework.test_util) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.config.list_physical_devices('GPU')` instead.
+2025-04-24 10:59:25.918315: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Created device /device:GPU:0 with 9796 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:61:00.0, compute capability: 7.5
+2025-04-24 10:59:27.144627: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9796 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:61:00.0, compute capability: 7.5
+True
+Misc. initializations
+data ready
+shape:  (50000, 32, 32, 3)
+Validation and test data ready
+input shape: (32, 32, 3)
+Saving x_test of shape (100, 32, 32, 3) in x_test.h5
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 32, 32, 64)        1792      
+                                                                 
+ square_activation (SquareA  (None, 32, 32, 64)        0         
+ ctivation)                                                      
+                                                                 
+ average_pooling2d (Average  (None, 16, 16, 64)        0         
+ Pooling2D)                                                      
+                                                                 
+ conv2d_1 (Conv2D)           (None, 16, 16, 192)       307392    
+                                                                 
+ square_activation_1 (Squar  (None, 16, 16, 192)       0         
+ eActivation)                                                    
+                                                                 
+ average_pooling2d_1 (Avera  (None, 8, 8, 192)         0         
+ gePooling2D)                                                    
+                                                                 
+ conv2d_2 (Conv2D)           (None, 8, 8, 384)         663936    
+                                                                 
+ square_activation_2 (Squar  (None, 8, 8, 384)         0         
+ eActivation)                                                    
+                                                                 
+ conv2d_3 (Conv2D)           (None, 8, 8, 256)         884992    
+                                                                 
+ square_activation_3 (Squar  (None, 8, 8, 256)         0         
+ eActivation)                                                    
+                                                                 
+ conv2d_4 (Conv2D)           (None, 8, 8, 256)         590080    
+                                                                 
+ square_activation_4 (Squar  (None, 8, 8, 256)         0         
+ eActivation)                                                    
+                                                                 
+ average_pooling2d_2 (Avera  (None, 4, 4, 256)         0         
+ gePooling2D)                                                    
+                                                                 
+ flatten (Flatten)           (None, 4096)              0         
+                                                                 
+ dense (Dense)               (None, 4096)              16781312  
+                                                                 
+ square_activation_5 (Squar  (None, 4096)              0         
+ eActivation)                                                    
+                                                                 
+ dense_1 (Dense)             (None, 4096)              16781312  
+                                                                 
+ square_activation_6 (Squar  (None, 4096)              0         
+ eActivation)                                                    
+                                                                 
+ dense_2 (Dense)             (None, 10)                40970     
+                                                                 
+=================================================================
+Total params: 36051786 (137.53 MB)
+Trainable params: 36051786 (137.53 MB)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+Epoch 1/25
+2025-04-24 10:59:30.640948: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:432] Loaded cuDNN version 8600
+2025-04-24 10:59:31.676919: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f8bfb51af90 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2025-04-24 10:59:31.676962: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce RTX 2080 Ti, Compute Capability 7.5
+2025-04-24 10:59:31.681743: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:255] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2025-04-24 10:59:31.802071: I ./tensorflow/compiler/jit/device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+100/100 - 11s - loss: 2.3027 - accuracy: 0.0974 - val_loss: 2.3026 - val_accuracy: 0.0997 - 11s/epoch - 109ms/step
+Epoch 2/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0952 - val_loss: 2.3026 - val_accuracy: 0.1001 - 5s/epoch - 50ms/step
+Epoch 3/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0975 - val_loss: 2.3026 - val_accuracy: 0.0997 - 5s/epoch - 50ms/step
+Epoch 4/25
+100/100 - 5s - loss: 2.3027 - accuracy: 0.0997 - val_loss: 2.3026 - val_accuracy: 0.0997 - 5s/epoch - 51ms/step
+Epoch 5/25
+100/100 - 5s - loss: 2.3027 - accuracy: 0.0966 - val_loss: 2.3026 - val_accuracy: 0.0997 - 5s/epoch - 51ms/step
+Epoch 6/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0990 - val_loss: 2.3026 - val_accuracy: 0.1001 - 5s/epoch - 51ms/step
+Epoch 7/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0974 - val_loss: 2.3026 - val_accuracy: 0.0997 - 5s/epoch - 51ms/step
+Epoch 8/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0975 - val_loss: 2.3026 - val_accuracy: 0.0996 - 5s/epoch - 51ms/step
+Epoch 9/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0988 - val_loss: 2.3026 - val_accuracy: 0.0998 - 5s/epoch - 49ms/step
+Epoch 10/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0974 - val_loss: 2.3026 - val_accuracy: 0.0996 - 5s/epoch - 49ms/step
+Epoch 11/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0974 - val_loss: 2.3026 - val_accuracy: 0.0996 - 5s/epoch - 51ms/step
+Epoch 12/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0978 - val_loss: 2.3026 - val_accuracy: 0.0997 - 5s/epoch - 51ms/step
+Epoch 13/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0999 - val_loss: 2.3026 - val_accuracy: 0.0999 - 5s/epoch - 49ms/step
+Epoch 14/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0973 - val_loss: 2.3026 - val_accuracy: 0.1000 - 5s/epoch - 51ms/step
+Epoch 15/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0995 - val_loss: 2.3026 - val_accuracy: 0.1006 - 5s/epoch - 49ms/step
+Epoch 16/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0977 - val_loss: 2.3026 - val_accuracy: 0.1006 - 5s/epoch - 49ms/step
+Epoch 17/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0980 - val_loss: 2.3026 - val_accuracy: 0.1005 - 5s/epoch - 51ms/step
+Epoch 18/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0977 - val_loss: 2.3026 - val_accuracy: 0.1001 - 5s/epoch - 50ms/step
+Epoch 19/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0971 - val_loss: 2.3026 - val_accuracy: 0.1005 - 5s/epoch - 52ms/step
+Epoch 20/25
+100/100 - 5s - loss: 2.3027 - accuracy: 0.0973 - val_loss: 2.3026 - val_accuracy: 0.0997 - 5s/epoch - 52ms/step
+Epoch 21/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0985 - val_loss: 2.3026 - val_accuracy: 0.1001 - 5s/epoch - 50ms/step
+Epoch 22/25
+100/100 - 5s - loss: 2.3027 - accuracy: 0.1001 - val_loss: 2.3026 - val_accuracy: 0.1005 - 5s/epoch - 52ms/step
+Epoch 23/25
+100/100 - 5s - loss: 2.3027 - accuracy: 0.0993 - val_loss: 2.3026 - val_accuracy: 0.1001 - 5s/epoch - 52ms/step
+Epoch 24/25
+100/100 - 5s - loss: 2.3027 - accuracy: 0.0967 - val_loss: 2.3026 - val_accuracy: 0.1001 - 5s/epoch - 50ms/step
+Epoch 25/25
+100/100 - 5s - loss: 2.3026 - accuracy: 0.0963 - val_loss: 2.3026 - val_accuracy: 0.1001 - 5s/epoch - 52ms/step
+Test loss: 2.303
+Test accuracy: 9.000%
+Test loss: 5.995
+Test accuracy: 9.000%
+Saved model to disk

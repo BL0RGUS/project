@@ -1,0 +1,41 @@
+
+Using seed 3237666607
+
+Performing MNIST task with 2-bits in quantization and a sparsity of 4
+
+1. Training
+Test set: Average loss: 0.0332, Accuracy: 6612/10000 (66%)
+Test set: Average loss: 0.0244, Accuracy: 7502/10000 (75%)
+Test set: Average loss: 0.0195, Accuracy: 8012/10000 (80%)
+Test set: Average loss: 0.0183, Accuracy: 8147/10000 (81%)
+Test set: Average loss: 0.0169, Accuracy: 8340/10000 (83%)
+Test set: Average loss: 0.0162, Accuracy: 8349/10000 (83%)
+Test set: Average loss: 0.0157, Accuracy: 8445/10000 (84%)
+Test set: Average loss: 0.0165, Accuracy: 8367/10000 (84%)
+Test set: Average loss: 0.0152, Accuracy: 8484/10000 (85%)
+Test set: Average loss: 0.0142, Accuracy: 8617/10000 (86%)
+Test set: Average loss: 0.0138, Accuracy: 8659/10000 (87%)
+Test set: Average loss: 0.0131, Accuracy: 8700/10000 (87%)
+Test set: Average loss: 0.0124, Accuracy: 8769/10000 (88%)
+Test set: Average loss: 0.0133, Accuracy: 8686/10000 (87%)
+Test set: Average loss: 0.0136, Accuracy: 8669/10000 (87%)
+Test set: Average loss: 0.0131, Accuracy: 8722/10000 (87%)
+Test set: Average loss: 0.0116, Accuracy: 8861/10000 (89%)
+Test set: Average loss: 0.0125, Accuracy: 8759/10000 (88%)
+Test set: Average loss: 0.0141, Accuracy: 8636/10000 (86%)
+Test set: Average loss: 0.0131, Accuracy: 8743/10000 (87%)
+Test set: Average loss: 0.0129, Accuracy: 8751/10000 (88%)
+Test set: Average loss: 0.0122, Accuracy: 8790/10000 (88%)
+Test set: Average loss: 0.0128, Accuracy: 8750/10000 (88%)
+Test set: Average loss: 0.0126, Accuracy: 8752/10000 (88%)
+Test set: Average loss: 0.0111, Accuracy: 8929/10000 (89%)
+
+3. Compiling in FHE
+Compilation Time: 20.235457181930542
+Bit Width:7
+
+4. Checking accuracy in FHE (length 100)
+Key Genereration time: 12.5687255859375
+Average Inference Time: 13.073576221466064
+Accuracy in FHE with length 100: 95/100 = 0.9500, in 7 bits
+

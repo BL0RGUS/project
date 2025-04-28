@@ -1,0 +1,8 @@
+Files already downloaded and verified
+Files already downloaded and verified
+(10000, 3, 32, 32)
+(50000, 3, 32, 32)
+Simulated FHE execution for 6 bit network accuracy: 49.58%
+Keygen time: 6.39s
+(3, 3, 32, 32)
+Time per inference in FHE: 27.61 with 66.67% accuracy

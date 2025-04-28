@@ -1,0 +1,112 @@
+2025-03-25 11:37:24.250626: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-03-25 11:37:24.292020: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-03-25 11:37:24.292454: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-25 11:37:26.429058: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2025-03-25 11:37:31.292118: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1960] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+Misc. initializations
+data ready
+shape:  (50000, 32, 32, 3)
+Validation and test data ready
+input shape: (32, 32, 3)
+Saving x_test of shape (100, 32, 32, 3) in x_test.h5
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 16, 16, 5)         140       
+                                                                 
+ batch_normalization (Batch  (None, 16, 16, 5)         20        
+ Normalization)                                                  
+                                                                 
+ square_activation (SquareA  (None, 16, 16, 5)         0         
+ ctivation)                                                      
+                                                                 
+ conv2d_1 (Conv2D)           (None, 8, 8, 10)          460       
+                                                                 
+ batch_normalization_1 (Bat  (None, 8, 8, 10)          40        
+ chNormalization)                                                
+                                                                 
+ square_activation_1 (Squar  (None, 8, 8, 10)          0         
+ eActivation)                                                    
+                                                                 
+ flatten (Flatten)           (None, 640)               0         
+                                                                 
+ dense (Dense)               (None, 100)               64100     
+                                                                 
+ square_activation_2 (Squar  (None, 100)               0         
+ eActivation)                                                    
+                                                                 
+ dense_1 (Dense)             (None, 10)                1010      
+                                                                 
+=================================================================
+Total params: 65770 (256.91 KB)
+Trainable params: 65740 (256.80 KB)
+Non-trainable params: 30 (120.00 Byte)
+_________________________________________________________________
+Epoch 1/30
+100/100 - 7s - loss: 10.0262 - accuracy: 0.1610 - val_loss: 3.2622 - val_accuracy: 0.1210 - 7s/epoch - 72ms/step
+Epoch 2/30
+100/100 - 6s - loss: 3.1778 - accuracy: 0.2170 - val_loss: 2.6949 - val_accuracy: 0.1212 - 6s/epoch - 61ms/step
+Epoch 3/30
+100/100 - 6s - loss: 2.3788 - accuracy: 0.2583 - val_loss: 2.4566 - val_accuracy: 0.1403 - 6s/epoch - 61ms/step
+Epoch 4/30
+100/100 - 6s - loss: 2.1054 - accuracy: 0.2925 - val_loss: 2.2069 - val_accuracy: 0.2049 - 6s/epoch - 61ms/step
+Epoch 5/30
+100/100 - 6s - loss: 1.9654 - accuracy: 0.3214 - val_loss: 2.0101 - val_accuracy: 0.2895 - 6s/epoch - 62ms/step
+Epoch 6/30
+100/100 - 6s - loss: 1.8736 - accuracy: 0.3436 - val_loss: 1.9538 - val_accuracy: 0.3251 - 6s/epoch - 61ms/step
+Epoch 7/30
+100/100 - 6s - loss: 1.8077 - accuracy: 0.3656 - val_loss: 1.9155 - val_accuracy: 0.3461 - 6s/epoch - 62ms/step
+Epoch 8/30
+100/100 - 6s - loss: 1.7453 - accuracy: 0.3819 - val_loss: 1.8761 - val_accuracy: 0.3617 - 6s/epoch - 61ms/step
+Epoch 9/30
+100/100 - 6s - loss: 1.7001 - accuracy: 0.3982 - val_loss: 1.8302 - val_accuracy: 0.3736 - 6s/epoch - 61ms/step
+Epoch 10/30
+100/100 - 6s - loss: 1.6546 - accuracy: 0.4129 - val_loss: 1.7862 - val_accuracy: 0.3833 - 6s/epoch - 61ms/step
+Epoch 11/30
+100/100 - 6s - loss: 1.6189 - accuracy: 0.4248 - val_loss: 1.7599 - val_accuracy: 0.3881 - 6s/epoch - 61ms/step
+Epoch 12/30
+100/100 - 6s - loss: 1.5852 - accuracy: 0.4351 - val_loss: 1.7556 - val_accuracy: 0.4025 - 6s/epoch - 61ms/step
+Epoch 13/30
+100/100 - 6s - loss: 1.5490 - accuracy: 0.4486 - val_loss: 1.7119 - val_accuracy: 0.4043 - 6s/epoch - 61ms/step
+Epoch 14/30
+100/100 - 6s - loss: 1.5134 - accuracy: 0.4601 - val_loss: 1.7152 - val_accuracy: 0.4140 - 6s/epoch - 61ms/step
+Epoch 15/30
+100/100 - 6s - loss: 1.4859 - accuracy: 0.4681 - val_loss: 1.6674 - val_accuracy: 0.4237 - 6s/epoch - 61ms/step
+Epoch 16/30
+100/100 - 6s - loss: 1.4632 - accuracy: 0.4787 - val_loss: 1.6585 - val_accuracy: 0.4321 - 6s/epoch - 61ms/step
+Epoch 17/30
+100/100 - 6s - loss: 1.4367 - accuracy: 0.4881 - val_loss: 1.6509 - val_accuracy: 0.4324 - 6s/epoch - 61ms/step
+Epoch 18/30
+100/100 - 6s - loss: 1.4128 - accuracy: 0.4957 - val_loss: 1.6536 - val_accuracy: 0.4411 - 6s/epoch - 61ms/step
+Epoch 19/30
+100/100 - 6s - loss: 1.3844 - accuracy: 0.5075 - val_loss: 1.6509 - val_accuracy: 0.4389 - 6s/epoch - 61ms/step
+Epoch 20/30
+100/100 - 6s - loss: 1.3586 - accuracy: 0.5171 - val_loss: 1.6336 - val_accuracy: 0.4441 - 6s/epoch - 61ms/step
+Epoch 21/30
+100/100 - 6s - loss: 1.3345 - accuracy: 0.5253 - val_loss: 1.6406 - val_accuracy: 0.4510 - 6s/epoch - 61ms/step
+Epoch 22/30
+100/100 - 6s - loss: 1.3114 - accuracy: 0.5340 - val_loss: 1.6405 - val_accuracy: 0.4508 - 6s/epoch - 61ms/step
+Epoch 23/30
+100/100 - 6s - loss: 1.2933 - accuracy: 0.5399 - val_loss: 1.6279 - val_accuracy: 0.4564 - 6s/epoch - 60ms/step
+Epoch 24/30
+100/100 - 6s - loss: 1.2660 - accuracy: 0.5501 - val_loss: 1.6241 - val_accuracy: 0.4606 - 6s/epoch - 61ms/step
+Epoch 25/30
+100/100 - 6s - loss: 1.2436 - accuracy: 0.5589 - val_loss: 1.6689 - val_accuracy: 0.4554 - 6s/epoch - 61ms/step
+Epoch 26/30
+100/100 - 6s - loss: 1.2254 - accuracy: 0.5639 - val_loss: 1.6630 - val_accuracy: 0.4576 - 6s/epoch - 61ms/step
+Epoch 27/30
+100/100 - 6s - loss: 1.2066 - accuracy: 0.5736 - val_loss: 1.6814 - val_accuracy: 0.4542 - 6s/epoch - 61ms/step
+Epoch 28/30
+100/100 - 6s - loss: 1.1817 - accuracy: 0.5806 - val_loss: 1.6817 - val_accuracy: 0.4590 - 6s/epoch - 61ms/step
+Epoch 29/30
+100/100 - 6s - loss: 1.1648 - accuracy: 0.5865 - val_loss: 1.7148 - val_accuracy: 0.4634 - 6s/epoch - 61ms/step
+Epoch 30/30
+100/100 - 6s - loss: 1.1418 - accuracy: 0.5950 - val_loss: 1.7060 - val_accuracy: 0.4683 - 6s/epoch - 61ms/step
+Test loss: 1.972
+Test accuracy: 36.000%
+Test loss: 2.635
+Test accuracy: 36.000%
+Saved model to disk

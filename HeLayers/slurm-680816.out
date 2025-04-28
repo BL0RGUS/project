@@ -1,0 +1,32 @@
+/home2/fsgf66/project/HeLayers/.venv/lib/python3.9/site-packages/sklearn/metrics/_classification.py:407: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+  warnings.warn(
+Misc. initializations
+*** Effective HE run requirements: ***
+Optimization target: server-side CPU consumption per sample
+Batch size: 1
+Model encrypted: true
+Lazy mode: none
+Handle overflow: false
+Use AES inputs: false
+Use generically-packed inputs: false
+Device to optimize: CPU
+Hybrid device utilization: false
+HE context options: SEAL_CKKS 
+Security level: 128
+Integer part precision: 10
+Fractional part precision: 36
+Run exhaustive search: false
+Run parallel search: true
+
+128
+Batch of size 1 loaded
+Test data encrypted
+Duration of predict: 1.954 (s)
+Duration of predict per sample: 1.954 (s)
+predictions [[ 0.14189957  1.0207068  -0.02690917  0.10494758 -0.01799517  0.1823656
+  -0.20621458  0.10529231  0.0623503  -0.04320327]]
+
+Confusion Matrix:
+[[1]]
+Accuracy:
+1.0

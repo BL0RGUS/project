@@ -1,0 +1,42 @@
+
+Using seed 3656016878
+
+Performing MNIST task with 2-bits in quantization and a sparsity of 4
+
+1. Training
+Train Epoch: 1 [0/1875 (0%)]	Loss: 6.006582
+Test set: Average loss: 0.0164, Accuracy: 8468/10000 (85%)
+Train Epoch: 2 [0/1875 (0%)]	Loss: 0.324881
+Test set: Average loss: 0.0122, Accuracy: 8787/10000 (88%)
+Train Epoch: 3 [0/1875 (0%)]	Loss: 0.274092
+Test set: Average loss: 0.0116, Accuracy: 8886/10000 (89%)
+Train Epoch: 4 [0/1875 (0%)]	Loss: 0.054257
+Test set: Average loss: 0.0107, Accuracy: 8961/10000 (90%)
+Train Epoch: 5 [0/1875 (0%)]	Loss: 0.081241
+Test set: Average loss: 0.0100, Accuracy: 9053/10000 (91%)
+Train Epoch: 6 [0/1875 (0%)]	Loss: 0.127677
+Test set: Average loss: 0.0091, Accuracy: 9138/10000 (91%)
+
+2. Exporting to ONNX
+
+3. Compiling with the Virtual Library
+Bit Width:7
+
+4. Checking accuracy with the Virtual Library (length 10000)
+Average Inference Time: 0.0017904029846191405
+Accuracy in VL with length 10000: 9113/10000 = 0.9113, in 7 bits
+
+5. Compiling with the Virtual Library
+Bit Width:7
+
+6. Checking accuracy with the Virtual Library (length 10)
+Average Inference Time: 0.001841425895690918
+Accuracy in VL with length 10: 9/10 = 0.9000, in 7 bits
+
+7. Compiling in FHE
+Bit Width:7
+
+8. Checking accuracy in FHE (length 10)
+Average Inference Time: 117.73736391067504
+Accuracy in FHE with length 10: 9/10 = 0.9000, in 7 bits
+

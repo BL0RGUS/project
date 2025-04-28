@@ -1,0 +1,30 @@
+Misc. initializations
+*** Effective HE run requirements: ***
+Optimization target: server-side CPU consumption per sample
+Batch size: 1
+Model encrypted: false
+Lazy mode: none
+Handle overflow: false
+Use AES inputs: false
+Use generically-packed inputs: false
+Device to optimize: CPU
+Hybrid device utilization: false
+HE context options: SEAL_CKKS 
+Security level: 128
+Integer part precision: 10
+Fractional part precision: 36
+Run exhaustive search: false
+Run parallel search: true
+
+128
+Batch of size 1 loaded
+Test data encrypted
+Duration of predict: 0.685 (s)
+Duration of predict per sample: 0.685 (s)
+predictions [[  6.49351528   5.24354232  -3.22751194  -2.9943112    2.73963655
+   22.41425643  15.3607735  -26.4947201   50.42403237  -4.95309079]]
+
+Confusion Matrix:
+[[1]]
+Accuracy:
+1.0

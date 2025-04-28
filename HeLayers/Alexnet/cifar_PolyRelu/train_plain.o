@@ -1,0 +1,5 @@
+Logging level is: ERROR
+The supported models values are: dict_keys(['alexnet', 'lenet5', 'resnet50', 'resnet18', 'resnet152', 'resnet101', 'squeezenet1_0', 'squeezenet1_1', 'squeezenet_CHET', 'CLIPresnet50', 'AlexNet'])
+Files already downloaded and verified
+Files already downloaded and verified
+0.8846

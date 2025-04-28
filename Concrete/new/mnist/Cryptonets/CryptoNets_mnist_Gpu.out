@@ -1,0 +1,7 @@
+(10000, 1, 28, 28)
+(60000, 1, 28, 28)
+cuda
+Simulated FHE execution for 6 bit network accuracy: 97.84%
+Keygen time: 3.57s
+(2, 1, 28, 28)
+Time per inference in FHE: 17.80 with 100.00% accuracy

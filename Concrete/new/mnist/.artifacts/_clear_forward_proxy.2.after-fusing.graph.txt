@@ -1,0 +1,90 @@
+ %0 = _x                                                                                                           # EncryptedTensor<int8, shape=(1, 1, 28, 28)>
+ %1 = ones()                                                                                                       # EncryptedTensor<uint1, shape=(1, 1, 30, 30)>
+ %2 = -95                                                                                                          # ClearScalar<int8>
+ %3 = multiply(%1, %2)                                                                                             # EncryptedTensor<uint1, shape=(1, 1, 30, 30)>
+ %4 = (%3[:, :, 1:29, 1:29] = %0)                                                                                  # EncryptedTensor<uint1, shape=(1, 1, 30, 30)>
+ %5 = [[[[ -8  3 ... 63  11]]]]                                                                                    # ClearTensor<int8, shape=(5, 1, 3, 3)>                          @ /conv1/Conv.conv
+ %6 = conv2d(%4, %5, [0 0 0 0 0], pads=[0, 0, 0, 0], strides=(1, 1), dilations=(1, 1), group=1)                    # EncryptedTensor<uint1, shape=(1, 5, 28, 28)>                   @ /conv1/Conv.conv
+ %7 = round_bit_pattern(%6, lsbs_to_remove=11, overflow_protection=False, exactness=Exactness.EXACT)               # EncryptedTensor<uint1, shape=(1, 5, 28, 28)>                   @ /conv1/Conv.conv_rounding
+ %8 = astype(%7, dtype=float64)                                                                                    # EncryptedTensor<float64, shape=(1, 5, 28, 28)>
+ %9 = 0                                                                                                            # ClearScalar<uint1>
+%10 = add(%8, %9)                                                                                                  # EncryptedTensor<float64, shape=(1, 5, 28, 28)>
+%11 = [[[[ 1045] ... [13585]]]]                                                                                    # ClearTensor<int15, shape=(1, 5, 1, 1)>
+%12 = subtract(%10, %11)                                                                                           # EncryptedTensor<float64, shape=(1, 5, 28, 28)>
+%13 = 9.268524155502533e-05                                                                                        # ClearScalar<float64>
+%14 = multiply(%13, %12)                                                                                           # EncryptedTensor<float64, shape=(1, 5, 28, 28)>
+%15 = [[[[-0.013 ... 671166]]]]                                                                                    # ClearTensor<float32, shape=(1, 5, 1, 1)>
+%16 = add(%14, %15)                                                                                                # EncryptedTensor<float64, shape=(1, 5, 28, 28)>
+%17 = 0                                                                                                            # ClearScalar<uint1>
+%18 = maximum(%16, %17)                                                                                            # EncryptedTensor<float64, shape=(1, 5, 28, 28)>
+%19 = 0.019100847788670546                                                                                         # ClearScalar<float64>
+%20 = divide(%18, %19)                                                                                             # EncryptedTensor<float64, shape=(1, 5, 28, 28)>
+%21 = 0                                                                                                            # ClearScalar<uint1>
+%22 = add(%20, %21)                                                                                                # EncryptedTensor<float64, shape=(1, 5, 28, 28)>
+%23 = rint(%22)                                                                                                    # EncryptedTensor<float64, shape=(1, 5, 28, 28)>
+%24 = 0                                                                                                            # ClearScalar<uint1>
+%25 = 255                                                                                                          # ClearScalar<uint8>
+%26 = clip(%23, %24, %25)                                                                                          # EncryptedTensor<float64, shape=(1, 5, 28, 28)>
+%27 = astype(%26, dtype=int_)                                                                                      # EncryptedTensor<uint1, shape=(1, 5, 28, 28)>
+%28 = ones()                                                                                                       # EncryptedTensor<uint1, shape=(1, 5, 30, 30)>
+%29 = 0                                                                                                            # ClearScalar<uint1>
+%30 = multiply(%28, %29)                                                                                           # EncryptedTensor<uint1, shape=(1, 5, 30, 30)>
+%31 = (%30[:, :, 1:29, 1:29] = %27)                                                                                # EncryptedTensor<uint1, shape=(1, 5, 30, 30)>
+%32 = [[[[  21   ... 4  -46]]]]                                                                                    # ClearTensor<int8, shape=(10, 5, 3, 3)>                         @ /conv2/Conv.conv
+%33 = conv2d(%31, %32, [0 0 0 0 0 0 0 0 0 0], pads=[0, 0, 0, 0], strides=(2, 2), dilations=(1, 1), group=1)        # EncryptedTensor<uint1, shape=(1, 10, 14, 14)>                  @ /conv2/Conv.conv
+%34 = round_bit_pattern(%33, lsbs_to_remove=12, overflow_protection=False, exactness=Exactness.EXACT)              # EncryptedTensor<uint1, shape=(1, 10, 14, 14)>                  @ /conv2/Conv.conv_rounding
+%35 = astype(%34, dtype=float64)                                                                                   # EncryptedTensor<float64, shape=(1, 10, 14, 14)>
+%36 = 0                                                                                                            # ClearScalar<uint1>
+%37 = add(%35, %36)                                                                                                # EncryptedTensor<float64, shape=(1, 10, 14, 14)>
+%38 = [[[[0]]  [ ... ]  [[0]]]]                                                                                    # ClearTensor<uint1, shape=(1, 10, 1, 1)>
+%39 = subtract(%37, %38)                                                                                           # EncryptedTensor<float64, shape=(1, 10, 14, 14)>
+%40 = 0.00011569159518310057                                                                                       # ClearScalar<float64>
+%41 = multiply(%40, %39)                                                                                           # EncryptedTensor<float64, shape=(1, 10, 14, 14)>
+%42 = [[[[ 0.417 ... 758337]]]]                                                                                    # ClearTensor<float32, shape=(1, 10, 1, 1)>
+%43 = add(%41, %42)                                                                                                # EncryptedTensor<float64, shape=(1, 10, 14, 14)>
+%44 = 0                                                                                                            # ClearScalar<uint1>
+%45 = maximum(%43, %44)                                                                                            # EncryptedTensor<float64, shape=(1, 10, 14, 14)>
+%46 = 0.030714080024451373                                                                                         # ClearScalar<float64>
+%47 = divide(%45, %46)                                                                                             # EncryptedTensor<float64, shape=(1, 10, 14, 14)>
+%48 = 0                                                                                                            # ClearScalar<uint1>
+%49 = add(%47, %48)                                                                                                # EncryptedTensor<float64, shape=(1, 10, 14, 14)>
+%50 = rint(%49)                                                                                                    # EncryptedTensor<float64, shape=(1, 10, 14, 14)>
+%51 = 0                                                                                                            # ClearScalar<uint1>
+%52 = 255                                                                                                          # ClearScalar<uint8>
+%53 = clip(%50, %51, %52)                                                                                          # EncryptedTensor<float64, shape=(1, 10, 14, 14)>
+%54 = astype(%53, dtype=int_)                                                                                      # EncryptedTensor<uint1, shape=(1, 10, 14, 14)>
+%55 = reshape(%54, newshape=(1, 1960))                                                                             # EncryptedTensor<uint1, shape=(1, 1960)>
+%56 = [[ -4 -10  ...   29 -24]]                                                                                    # ClearTensor<int8, shape=(1960, 10)>                            @ /fc1/Gemm.matmul
+%57 = matmul(%55, %56)                                                                                             # EncryptedTensor<uint11, shape=(1, 10)>                         @ /fc1/Gemm.matmul
+%58 = round_bit_pattern(%57, lsbs_to_remove=15, overflow_protection=False, exactness=Exactness.EXACT)              # EncryptedTensor<uint11, shape=(1, 10)>                         @ /fc1/Gemm.matmul_rounding
+%59 = subgraph(%58)                                                                                                # EncryptedTensor<uint1, shape=(1, 10)>
+%60 = [[ -53  11 ...  89 -101]]                                                                                    # ClearTensor<int8, shape=(10, 10)>                              @ /fc2/Gemm.matmul
+%61 = matmul(%59, %60)                                                                                             # EncryptedTensor<uint4, shape=(1, 10)>                          @ /fc2/Gemm.matmul
+return %61
+
+Subgraphs:
+
+    %59 = subgraph(%58):
+
+         %0 = input                            # EncryptedTensor<uint11, shape=(1, 10)>         @ /fc1/Gemm.matmul_rounding
+         %1 = astype(%0, dtype=float64)        # EncryptedTensor<float64, shape=(1, 10)>        @ /fc1/Gemm.matmul_rounding
+         %2 = 0                                # ClearScalar<uint1>
+         %3 = add(%1, %2)                      # EncryptedTensor<float64, shape=(1, 10)>
+         %4 = [[0 0 0 0 0 0 0 0 0 0]]          # ClearTensor<uint1, shape=(1, 10)>
+         %5 = subtract(%3, %4)                 # EncryptedTensor<float64, shape=(1, 10)>
+         %6 = 1.8095586648275814e-05           # ClearScalar<float64>
+         %7 = multiply(%6, %5)                 # EncryptedTensor<float64, shape=(1, 10)>
+         %8 = [ 0.014393 ... .00067668]        # ClearTensor<float32, shape=(10,)>
+         %9 = add(%7, %8)                      # EncryptedTensor<float64, shape=(1, 10)>
+        %10 = 0                                # ClearScalar<uint1>
+        %11 = maximum(%9, %10)                 # EncryptedTensor<float64, shape=(1, 10)>
+        %12 = 0.06302612357167402              # ClearScalar<float64>
+        %13 = divide(%11, %12)                 # EncryptedTensor<float64, shape=(1, 10)>
+        %14 = 0                                # ClearScalar<uint1>
+        %15 = add(%13, %14)                    # EncryptedTensor<float64, shape=(1, 10)>
+        %16 = rint(%15)                        # EncryptedTensor<float64, shape=(1, 10)>
+        %17 = 0                                # ClearScalar<uint1>
+        %18 = 255                              # ClearScalar<uint8>
+        %19 = clip(%16, %17, %18)              # EncryptedTensor<float64, shape=(1, 10)>
+        %20 = astype(%19, dtype=int_)          # EncryptedTensor<uint1, shape=(1, 10)>
+        return %20

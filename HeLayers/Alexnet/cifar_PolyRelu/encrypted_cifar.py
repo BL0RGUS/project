@@ -1,0 +1,104 @@
+import pyhelayers
+import utils as utils
+import os
+import numpy as np
+import torch
+import json
+from datetime import datetime
+import time
+
+utils.verify_memory()
+
+print('Misc. initializations')
+
+num_samples = 1
+plain_samples = torch.load('outputs/mltoolbox/plain_samples.pt')
+plain_labels = torch.load('outputs/mltoolbox/labels.pt')
+print(plain_labels)
+plain_samples = plain_samples[:num_samples]
+plain_labels = plain_labels[:num_samples]
+batch_size = len(plain_samples)
+
+
+
+checkpoint = torch.load(os.path.join('outputs/mltoolbox/polynomial4/AlexNet_best_checkpoint.pth.tar'), map_location=torch.device('cpu'))
+model = checkpoint['model']
+plain_model_predictions = model(plain_samples).detach().numpy()
+plain_predicted_labels = np.argmax(plain_model_predictions, 1)
+
+
+model_path = 'outputs/mltoolbox/polynomial4/AlexNet.onnx'
+nnp = pyhelayers.NeuralNetPlain()
+hyper_params = pyhelayers.PlainModelHyperParams()
+nnp.init_from_files(hyper_params,[model_path])
+
+
+## encode and encrypt the network, also run the optimiser for a batch size of 16
+he_run_req = pyhelayers.HeRunRequirements()
+he_run_req.set_he_context_options([pyhelayers.OpenFheCkksContext()])
+# The encryption is at least as strong as 128-bit encryption.
+he_run_req.set_security_level(128)
+# Our numbers are theoretically stored with a precision of about 2^-40.
+he_run_req.set_fractional_part_precision(30)
+# The model weights are kept in the plain
+he_run_req.set_model_encrypted(False)
+#he_run_req.set_not_secure()
+
+
+he_run_req.optimize_for_batch_size(batch_size)
+profile = pyhelayers.HeModel.compile(nnp, he_run_req)
+#if u dont want to compile:
+'''
+js = open('profile.json',)
+st = str(json.dumps(json.load(js), indent=4))
+js.close()
+print(st)
+profile = pyhelayers.HeProfile()
+profile.from_string(st)
+'''
+profile_as_json = profile.to_string()
+# Profile supports I/O operations and can be stored on file.
+print(json.dumps(json.loads(profile_as_json), indent=4))
+
+t = time.time()
+context=pyhelayers.HeModel.create_context(profile)
+print("key Gen: ", time.time()-t)
+nn = pyhelayers.NeuralNet(context)
+nn.encode(nnp, profile)
+
+#context.save_to_file("context.bin")
+
+t = time.time()
+model_io_encoder = pyhelayers.ModelIoEncoder(nn)
+encrypted_samples = pyhelayers.EncryptedData(context)
+model_io_encoder.encode_encrypt(encrypted_samples, [plain_samples])
+print('Test data encrypted')
+print("Encryption: ", time.time()-t)
+
+
+encrypted_predictions = pyhelayers.EncryptedData(context)
+predict_start = datetime.now()
+nn.predict(encrypted_predictions, encrypted_samples)
+predict_end = datetime.now()
+print('prediction time = %d seconds', predict_end - predict_start)
+
+t = time.time()
+fhe_model_predictions = model_io_encoder.decrypt_decode_output(encrypted_predictions)
+print("Decryption: ", time.time()-t)
+fhe_predicted_labels = np.argmax(fhe_model_predictions, 1)
+
+pyhelayers.OpenFheContext.clear_all_contexts()
+
+
+print('labels predicted by the FHE model: ', fhe_predicted_labels)
+print('labels predicted by the plain model: ', plain_predicted_labels)
+np.testing.assert_array_equal(fhe_predicted_labels, plain_predicted_labels)
+
+plain_labels = plain_labels.tolist()
+fhe_predicted_labels = fhe_predicted_labels.tolist()
+correct = 0 
+for i in range(len(fhe_predicted_labels)):
+    if plain_labels[i] == fhe_predicted_labels[i]:
+        correct += 1
+    
+print(correct/num_samples)

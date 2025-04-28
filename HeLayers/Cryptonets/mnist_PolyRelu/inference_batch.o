@@ -1,0 +1,92 @@
+Misc. initializations
+Logging level is: INFO
+The supported models values are: dict_keys(['Cryptonets'])
+{
+    "he_conf_req": {
+        "security_level": "128",
+        "integer_part_precision": "18",
+        "fractional_part_precision": "42",
+        "num_slots": "32768",
+        "multiplication_depth": "12",
+        "bootstrappable": "true",
+        "automatic_bootstrapping": "true",
+        "bootstrap_config": {
+            "exists": "true"
+        },
+        "multi_party_config": {
+            "exists": "false"
+        }
+    },
+    "bootstrap_config": {
+        "target_chain_index": "12",
+        "min_chain_index_for_bootstrapping": "3"
+    },
+    "public_functions": {
+        "encrypt": "true",
+        "relinearize": "true",
+        "rotate": "1",
+        "conjugate": "1",
+        "num_rotation_steps": "0"
+    },
+    "measures": {
+        "predict_cpu_time": "154732732",
+        "fit_cpu_time": "-1",
+        "init_model_cpu_time": "11087767",
+        "decrypt_model_cpu_time": "-1",
+        "encrypt_input_cpu_time": "95924",
+        "decrypt_aes_input_cpu_time": "-1",
+        "pack_aes_input_cpu_time": "-1",
+        "adjust_generic_input_cpu_time": "-1",
+        "decrypt_output_cpu_time": "21358",
+        "model_memory": "2451102950",
+        "input_memory": "16777760",
+        "output_memory": "12583184",
+        "context_memory": "3719416926",
+        "client_latency": "-1",
+        "server_latency": "-1",
+        "client_upload_time": "-1",
+        "server_upload_time": "-1",
+        "latency": "-1",
+        "throughput": "0.41361642861705561",
+        "chain_index_consumed_by_model": "-1",
+        "chain_index_consumed_total": "-1",
+        "bootstraps": "4"
+    },
+    "context_name": "HEaaN_CKKS",
+    "fit_mode": "false",
+    "tile_layout": {
+        "num_dims": "5",
+        "t1": "16",
+        "t2": "1",
+        "t3": "16",
+        "t4": "2",
+        "t5": "64"
+    },
+    "mode_name": "conv_internal_stride_flattening_5D",
+    "optimal_batch_size": "64",
+    "model_encrypted": "false",
+    "circuit_optimization": "false",
+    "circuit_scheduling_strategy": "",
+    "circuit_num_threads": "-1",
+    "circuit_memory_limit": "-1",
+    "circuit_gpu_workers": "0",
+    "circuit_gpu_memory_limit": "-1",
+    "lazy_mode": "0",
+    "lazy_load_dir": "",
+    "base_chain_index": "12",
+    "use_aes_inputs": "false",
+    "use_generic_packing_inputs": "false",
+    "optimized_device": "0",
+    "hybrid_device_utilization": "false"
+}
+Test data encrypted
+prediction time = %d seconds 0:01:23.176371
+labels predicted by the FHE model:  [8 4 3 1 2 9 0 0 8 7 7 7 5 7 6 1 1 3 2 1 2 8 7 4 0 2 0 4 7 9 7 5 7 0 1 3 9
+ 9 2 1 9 1 6 9 3 6 1 1 7 9 4 2 1 1 0 1 4 8 5 4 6 5 5 7 4 7 8 7 8 0 0 0 3 6
+ 3 4 7 4 2 3 2 8 4 5 3 1 5 6 5 2 5 3 1 9 7 1 3 8 8 9 5 0 9 8 9 5 4 5 5 2 7
+ 8 9 2 1 6 6 1 4 8 8 9 1 7 5 6 0]
+labels predicted by the plain model:  [8 4 3 1 2 9 0 0 8 7 7 7 5 7 6 1 1 3 2 1 2 8 7 4 0 2 0 4 7 9 7 5 7 0 1 3 9
+ 9 2 1 9 1 6 9 3 6 1 1 7 9 4 2 1 1 0 1 4 8 5 4 6 5 5 7 4 7 8 7 8 0 0 0 3 6
+ 3 4 7 4 2 3 2 8 4 5 3 1 5 6 5 2 5 3 1 9 7 1 3 8 8 9 5 0 9 8 9 5 4 5 5 2 7
+ 8 9 2 1 6 6 1 4 8 8 9 1 7 5 6 0]
+0.9763779527559056

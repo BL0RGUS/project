@@ -1,0 +1,124 @@
+Architecture:                       x86_64
+CPU op-mode(s):                     32-bit, 64-bit
+Byte Order:                         Little Endian
+Address sizes:                      46 bits physical, 48 bits virtual
+CPU(s):                             112
+On-line CPU(s) list:                0-111
+Thread(s) per core:                 2
+Core(s) per socket:                 28
+Socket(s):                          2
+NUMA node(s):                       2
+Vendor ID:                          GenuineIntel
+CPU family:                         6
+Model:                              85
+Model name:                         Intel(R) Xeon(R) Gold 6238R CPU @ 2.20GHz
+Stepping:                           7
+CPU MHz:                            1174.515
+CPU max MHz:                        4000.0000
+CPU min MHz:                        1000.0000
+BogoMIPS:                           4400.00
+Virtualization:                     VT-x
+L1d cache:                          1.8 MiB
+L1i cache:                          1.8 MiB
+L2 cache:                           56 MiB
+L3 cache:                           77 MiB
+NUMA node0 CPU(s):                  0-27,56-83
+NUMA node1 CPU(s):                  28-55,84-111
+Vulnerability Gather data sampling: Mitigation; Microcode
+Vulnerability Itlb multihit:        KVM: Mitigation: Split huge pages
+Vulnerability L1tf:                 Not affected
+Vulnerability Mds:                  Not affected
+Vulnerability Meltdown:             Not affected
+Vulnerability Mmio stale data:      Mitigation; Clear CPU buffers; SMT vulnerable
+Vulnerability Retbleed:             Vulnerable
+Vulnerability Spec store bypass:    Vulnerable
+Vulnerability Spectre v1:           Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:           Vulnerable, IBPB: disabled, STIBP: disabled, PBRSB-eIBRS: Vulnerable
+Vulnerability Srbds:                Not affected
+Vulnerability Tsx async abort:      Mitigation; TSX disabled
+Flags:                              fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+Misc. initializations
+*** Effective HE run requirements: ***
+Optimization target: server-side CPU consumption per sample
+Batch size: 32
+Model encrypted: false
+Lazy mode: none
+Handle overflow: false
+Use AES inputs: false
+Use generically-packed inputs: false
+Device to optimize: CPU
+Hybrid device utilization: false
+HE context options: SEAL_CKKS 
+Security level: 128
+Integer part precision: 10
+Fractional part precision: 36
+Run exhaustive search: false
+Run parallel search: true
+
+128
+Batch of size 63 loaded
+Test data encrypted
+Duration of predict: 0.518 (s)
+Duration of predict per sample: 0.008 (s)
+predictions [[-1.28477078e-02  1.00495427e+00 -4.15038872e-02 -8.93040320e-02
+   1.66405272e-02  4.58901961e-02  3.71505171e-02  6.93142009e-02
+   6.99407899e-02 -5.47799905e-02]
+ [-9.79431929e-02  8.37014970e-02  1.01631741e+00 -3.31805417e-03
+  -6.57637521e-02 -1.79728371e-02  2.90461427e-02  3.71176952e-02
+   1.00580522e-01 -1.58633980e-01]
+ [-1.45097835e-02 -5.28454591e-03  2.05354261e-02  9.71716925e-01
+   2.03382162e-02  2.90949837e-02  3.54899394e-02 -8.73511759e-02
+  -2.24417274e-02  2.04366355e-03]
+ [-1.35165938e-02 -3.51645522e-02  3.57459574e-02  2.00748043e-02
+   1.16009760e+00 -1.70302505e-02 -3.22874664e-02 -5.81222426e-02
+  -4.28858556e-02  7.05633777e-04]
+ [-2.03219054e-03 -2.19149270e-03  1.12307176e-02 -9.33242152e-02
+  -4.35420510e-02  1.07471752e+00  3.04232618e-03  1.74264159e-02
+   4.49283907e-02 -8.73083716e-03]
+ [-2.52841681e-02  4.29024519e-02  5.80485770e-02 -4.29790371e-02
+  -3.05653784e-02  3.25427425e-02  1.11539448e+00 -1.41799974e-03
+  -2.59617068e-02 -3.51175907e-02]
+ [-8.92022190e-03 -1.79807773e-02  1.49754659e-02 -4.22141701e-02
+   2.09780642e-02  5.02157625e-02 -3.17170880e-02  1.12868937e+00
+  -2.38466613e-02 -5.22175635e-02]
+ [ 3.71441507e-03  4.21765824e-02 -3.10656920e-02  1.23733984e-02
+   5.75410912e-02 -2.53962325e-02 -2.37377171e-02  2.46956931e-02
+   8.91748895e-01 -1.42898618e-02]
+ [-2.43307177e-02 -1.48019875e-02 -7.23108190e-03 -2.14227883e-02
+   2.67009258e-01 -1.00050978e-01 -2.11482658e-02 -7.82475414e-02
+   3.53587014e-02  9.73005469e-01]
+ [ 5.43159624e-01  3.36899255e-02  5.83475565e-02 -9.02615021e-02
+  -2.19136124e-02  3.75451155e-02  7.86789644e-02  2.60290079e-02
+   1.61257851e-01  1.57246221e-01]
+ [-1.48977312e-02  9.68403746e-01  4.46696145e-02 -7.05124447e-02
+  -1.57953220e-02  1.30222983e-02  5.38307438e-02 -5.68375993e-02
+   1.01443536e-02  2.75397681e-02]
+ [-9.89172572e-03 -6.08456452e-02  1.16508216e+00 -1.03580185e-01
+   6.92014081e-03  9.44317310e-03 -3.98205477e-02  3.35670361e-02
+   2.62316453e-02 -2.43546155e-02]
+ [ 5.77013248e-02  3.39032440e-02  8.04858290e-03  8.99525535e-01
+  -5.60231809e-02  2.43073532e-02 -4.26885114e-02 -3.02351917e-02
+  -1.63254541e-03  2.17623394e-02]
+ [ 3.56637022e-02  2.92567787e-02  4.74707227e-03 -4.46281152e-03
+   1.02891210e+00 -3.80793375e-02  2.04040353e-02  5.02193224e-02
+  -3.22065499e-02  3.97183971e-03]
+ [-3.58471265e-02 -5.44141764e-02  1.09087856e-01 -1.39605671e-01
+  -1.58615727e-02  1.04168901e+00 -2.32462420e-02 -3.19546903e-03
+   2.10881567e-01 -8.32776954e-02]
+ [ 8.80161299e-02  2.37234573e-02  2.51099501e-02  3.94857677e-02
+  -3.70921629e-03  2.35212614e-02  8.16775515e-01 -5.58955907e-02
+  -4.03427616e-03  1.75000303e-04]]
+
+Confusion Matrix:
+[[1 0 0 0 0 0 0 0 0 0]
+ [0 2 0 0 0 0 0 0 0 0]
+ [0 0 2 0 0 0 0 0 0 0]
+ [0 0 0 2 0 0 0 0 0 0]
+ [0 0 0 0 2 0 0 0 0 0]
+ [0 0 0 0 0 2 0 0 0 0]
+ [0 0 0 0 0 0 2 0 0 0]
+ [0 0 0 0 0 0 0 1 0 0]
+ [0 0 0 0 0 0 0 0 1 0]
+ [0 0 0 0 0 0 0 0 0 1]]
+Accuracy:
+1.0

@@ -1,0 +1,47 @@
+2025-03-25 11:25:12.712107: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-03-25 11:25:12.714278: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-03-25 11:25:12.758299: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-03-25 11:25:12.758741: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-25 11:25:13.718261: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Misc. initializations
+data ready
+shape:  (50000, 32, 32, 3)
+Validation and test data ready
+input shape: (32, 32, 3)
+Saving x_test of shape (100, 32, 32, 3) in x_test.h5
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 16, 16, 5)         140       
+                                                                 
+ batch_normalization (Batch  (None, 16, 16, 5)         20        
+ Normalization)                                                  
+                                                                 
+ square_activation (SquareA  (None, 16, 16, 5)         0         
+ ctivation)                                                      
+                                                                 
+ conv2d_1 (Conv2D)           (None, 8, 8, 10)          460       
+                                                                 
+ batch_normalization_1 (Bat  (None, 8, 8, 10)          40        
+ chNormalization)                                                
+                                                                 
+ square_activation_1 (Squar  (None, 8, 8, 10)          0         
+ eActivation)                                                    
+                                                                 
+ flatten (Flatten)           (None, 640)               0         
+                                                                 
+ dense (Dense)               (None, 100)               64100     
+                                                                 
+ square_activation_2 (Squar  (None, 100)               0         
+ eActivation)                                                    
+                                                                 
+ dense_1 (Dense)             (None, 10)                1010      
+                                                                 
+=================================================================
+Total params: 65770 (256.91 KB)
+Trainable params: 65740 (256.80 KB)
+Non-trainable params: 30 (120.00 Byte)
+_________________________________________________________________
+0.07999999821186066

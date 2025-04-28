@@ -1,0 +1,6 @@
+concrete-ml==1.7
+brevitas
+torchvision
+torch
+onnx
+onnxoptimizer
