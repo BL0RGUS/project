@@ -6,7 +6,7 @@
 #SBATCH --gres=gpu:turing
 #SBATCH --partition=ug-gpu-small
 #SBATCH -t 02:00:00
-#SBATCH -o train.out
+#SBATCH -o train2.out
 #SBATCH --job-name=training
-source ../.venv/bin/activate
-python generate_AlexNet.py
+source .venv/bin/activate
+python generateAlexNetsmallFC.py

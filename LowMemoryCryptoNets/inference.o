@@ -40,18 +40,43 @@ Vulnerability Spectre v1:             Mitigation; usercopy/swapgs barriers and _
 Vulnerability Spectre v2:             Vulnerable; IBPB: disabled; STIBP: disabled; PBRSB-eIBRS: Not affected; BHI: Not affected
 Vulnerability Srbds:                  Not affected
 Vulnerability Tsx async abort:        Not affected
-The keys folder "keys_exp1" already exists, I will abort.Key Generation: .017865991 seconds
+Ciphertext_slots: 16384
+Relu Degree27
+
+Ciphertexts depth: 23, available multiplications: 7
+log Q 1157
+
+log P 600
+
+log PQ 1757
+
+Context built, generating keys...
+Generated.
+Now serializing keys ...
+EvalMult keys have been serialized
+EvalSum keys have been serialized
+Crypto Context have been serialized
+Public Key has been serialized
+Secret Key has been serialized
+Rotation keys "rotations-layer1.bin" have been serialized
+Rotation keys "rotations-layer2.bin" have been serialized
+Rotation keys "rotations-layer3.bin" have been serialized
+Rotation keys "rotations-layer4.bin" have been serialized
+Reading serialized context...
+CtoS: 3, StoC: 3
+Circuit depth: 23, available multiplications: 7
+Context created correctly.
+Key Generation: 320.956175555 seconds
 Reading serialized context...
 CtoS: 3, StoC: 3
 Circuit depth: 23, available multiplications: 7
 0
-../CIFAR-10-images/0/0000.jpg
-Input: 14
-⌛(Encrpytime: ): 0:93s (Total: 0s)
-Conv Initial: 15
-Relu1: 20
-After Bootstrap: 14
-After Downsample1: 20
-terminate called after throwing an instance of 'lbcrypto::type_error'
-  what():  /home2/fsgf66/project/openfhe-development-1.0.4/src/pke/lib/scheme/ckksrns/ckksrns-fhe.cpp:310 Precomputations for 8192 slots were not generated Need to call EvalBootstrapSetup and then EvalBootstrapKeyGen to proceed
-/var/spool/slurmd/job754786/slurm_script: line 35: 1570387 Aborted                 (core dumped) ./LowMemoryCryptoNets load_keys 1
+../CIFAR-10-images/1/0001.jpg
+⌛(Encrpytime: ): 0:92s (Total: 0s)
+1
+⌛(Inference before fc layers: ): 4.50:479
+⌛(Inference: ): 8.22:745
+⌛(DECRYPT: ): 0:24s (Total: 793s)
+The prediction is: Automobile
+1
+1

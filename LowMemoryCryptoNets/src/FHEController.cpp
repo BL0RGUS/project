@@ -100,7 +100,7 @@ void FHEController::generate_context(int log_ring, int log_scale, int log_primes
 
     //16, 52, 48, 2, 3, 3, 59, true
 
-    num_slots = 1 << 13;
+    num_slots = 1 << 14;
     cout << "Ciphertext_slots: " << num_slots << "\n";
     cout << "Relu Degree" << relu_deg << endl;
     parameters.SetSecretKeyDist(SPARSE_TERNARY);
@@ -278,7 +278,7 @@ void FHEController::load_context(bool verbose) {
     if (verbose) cout << "Circuit depth: " << circuit_depth << ", available multiplications: " << levelsUsedBeforeBootstrap - 2 << endl;
    
 
-    num_slots = 1 << 13;
+    num_slots = 1 << 14;
 }
 
 void FHEController::test_context() {
@@ -823,6 +823,7 @@ Ctxt FHEController::convbn(const Ctxt &in, int layer, int n, double scale, bool 
     Ctxt carryThroughSum;
     int extraSpace = (num_slots - channels*img_size);
     bool ctPow2 = extraSpace == 0;
+    cout << ctPow2 << endl;
     Ptxt selectionMask = mask_from_to_from(img_size, channels*img_size, in->GetLevel()+1);
     for (int j = 0; j < channels; j++) {
         vector<Ctxt> k_rows;
@@ -1057,8 +1058,11 @@ Ctxt FHEController::downsample(const Ctxt &c1In, const Ctxt &c2In, int img_width
         }
         rotation_amount = rotation_amount*2;
     }
-    fullpack = context->EvalAdd(fullpack, context->EvalRotate(fullpack, rotation_amount));
-    
+    if(rotation_amount == 2){
+        fullpack = context->EvalAdd(fullpack, context->EvalRotate(context->EvalRotate(fullpack, 1),1));
+    }else{
+        fullpack = context->EvalAdd(fullpack, context->EvalRotate(fullpack, rotation_amount));
+    }
 
     
     Ctxt downsampledrows = encrypt({0});
@@ -1283,9 +1287,11 @@ Ptxt FHEController::mask_from_to(int from, int to, int level) {
 
 Ptxt FHEController::mask_from_to_from(int img_size, int ctSize, int level) {
     vector<double> vec;
+    
 
+    
     int extra = num_slots-ctSize;
-
+  
     if(extra > img_size){
         extra = img_size;
     }
@@ -1299,6 +1305,7 @@ Ptxt FHEController::mask_from_to_from(int img_size, int ctSize, int level) {
             vec.push_back(0);
         }
     }
+    
     return encode(vec, level, num_slots);
 }
 

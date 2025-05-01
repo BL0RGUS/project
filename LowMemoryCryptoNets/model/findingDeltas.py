@@ -5,11 +5,8 @@ import torchvision.transforms
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-from PIL import Image
 import numpy as np
-import matplotlib.pyplot as plt
 import math
-
 
 class AlexNet(nn.Module):
     def __init__(self):
@@ -24,11 +21,10 @@ class AlexNet(nn.Module):
         self.bn4 = nn.BatchNorm2d(64) 
         self.conv5 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1, bias=False)
         self.bn5 = nn.BatchNorm2d(128)
-        self.conv6 = nn.Conv2d(128, 128, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn6 = nn.BatchNorm2d(128)
+  
 
-        self.fc1 = nn.Linear(128*4*4,100, bias =  False)
-        self.fc2 = nn.Linear(100, 10, bias = False)
+        self.fc1 = nn.Linear(128*4*4,400, bias =  False)
+        self.fc2 = nn.Linear(400, 10, bias = False)
 
     def forward(self, x):
         x = self.conv1(x)
@@ -46,9 +42,6 @@ class AlexNet(nn.Module):
         x = self.conv5(x)
         x = self.bn5(x)
         x = F.relu(x)
-        x = self.conv6(x)
-        x = self.bn6(x)
-        x = F.relu(x)
         x = x.view(x.size(0), -1)
         x = self.fc1(x)
         x = F.relu(x)
@@ -56,11 +49,12 @@ class AlexNet(nn.Module):
         x = F.sigmoid(x)
         return x
 
+
         
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(device)
 model = AlexNet().to(device)
-network_state_dict = torch.load('AlexNet.pth')
+network_state_dict = torch.load('AlexNetSmallfc.pth')
 model.load_state_dict(network_state_dict)
 
 print(model.fc1.weight.t().shape)
@@ -118,21 +112,14 @@ for img, label in test_dataset:
     values[4].append(v.max())
     values[4].append(v.min())
     
-    x = F.relu(x)
-    x = model.conv6(x)
-    x = model.bn6(x)
+    x = F.relu(x)    
+    x = x.view(x.size(0), -1)
+    x = model.fc1(x)
     
     v = x.reshape(-1)
     values[5].append(v.max())
     values[5].append(v.min())
     
-    x = x.view(x.size(0), -1)
-    x = model.fc1(x)
     
-    v = x.reshape(-1)
-    values[6].append(v.max())
-    values[6].append(v.min())
-    
-    
-for i in range(7):
+for i in range(6):
     print("Min: {}\nMax: {}\nSuggested Delta: {}".format(min(values[i]), max(values[i]), 1 / (max(abs(min(values[i])), abs(max(values[i]))))))

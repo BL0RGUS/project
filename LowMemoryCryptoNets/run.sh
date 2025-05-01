@@ -11,8 +11,8 @@
 #SBATCH -N 1
 #SBATCH -c 32
 #SBATCH --hint=multithread
-#SBATCH --mem 128g
-#SBATCH -t 03:00:00
+#SBATCH --mem 32g
+#SBATCH -t 08:00:00
 #SBATCH -w cpu10
 # Governs the run time limit and
 # resource limit for the job. Please pick values
