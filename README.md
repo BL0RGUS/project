@@ -1,54 +1,33 @@
-# REDsec: Running Encrypted Discretized Neural Networks in Seconds  <a href="https://github.com/TrustworthyComputing/REDsec/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a> </h1>
-REDsec is an end-to-end framework for encrypted
-neural network inference using the CGGI cryptosystem. The [TFHE](https://github.com/tfhe/tfhe)
-and [(RED)cuFHE](https://github.com/TrustworthyComputing/REDcuFHE) libraries are
-utilized as cryptographic backends. A video presentation of REDsec is available [here](https://drive.google.com/file/d/19DTRfBerJ_CbMYzo2dTH1qdvWbZ0eecL/view?usp=sharing).
+# Comparison of Secure Inference Frameworks
+using Homomorphic Encryption
 
-## Prerequisites
-### Encrypted Inference with CPUs
-Install [TFHE v1.1](https://github.com/tfhe/tfhe) with the packaged SPQLIOS-FMA FFT
-engine.
-### Encrypted Inference with NVIDIA GPUs
-Install [(RED)cuFHE](https://github.com/TrustworthyComputing/REDcuFHE)
+This repository implements 4  FHE powereed Secure Inference frameworks on two neural networks on MNIST and CIFAR-10
 
-## Core Library Build Instructions
-1. Clone the repo:  `git clone https://github.com/TrustworthyComputing/REDsec.git`
-2. Navigate to library source directory: `cd REDsec/lib`
-3. Build one (or more) of the desired library variants: `make ptxt && make cpu-encrypt && make gpu-encrypt` 
+## Brief Instructions
+### ConcreteML
+1. Install the concrete-ml python library
+2. install torch=2.3.1 and torchvision 0.18.1
+3. First train the desired model/dataset by set the variabele training=True in the file <MODEL>_<DATASET>.py and run it, note that training on AlexNet will takes around 30 mins on ncc.
+4. Run the desired model by setting training to false and running the same file.
 
-## Creating and Training Networks (CLOUD)
-REDsec has a BYON framework. The tutorial and compiler are located [here](https://github.com/TrustworthyComputing/REDsec/tree/main/compiler).
+### HElayers
+1. install the pyhelayers python library
+2. install requirements.txt
+3. Train the desired network/dataset/activation this is usually generate_<DATASET>.py in the respective folder.
+4. Run the desired network/dataset/activation this is usually encrypted_<DATASET>.py in the respective folder.
 
-## Generating Keysets and Encryption/Decryption (CLIENT)
-1. Navigate to client directory: `cd REDsec/client`
-2. Generate FHE keypair by following the brief instructions printed by `make keygen-help`
-3. Encrypt an image (in CSV format) by following instructions printed by `make
-   encrypt-image-help`
-4. After the inference procedure is run, follow the instructions printed by
-   `make decrypt-image-help`
 
-## Getting Started with Encrypted Inference (CLOUD)
-1. Navigate to a network of your choice (e.g. `cd REDsec/nets/mnist/sign1024x1`)
-2. _(Optional)_ Verify network accuracy: `make ptxt` 
-3. Build and run one (or more) encrypted network variants : `make cpu-encrypt` for TFHE
-   (CPU) backend and `make gpu-encrypt` for (RED)cuFHE (GPU) backend
+### REDsec
+The REDsec code is incomplete due to unfortunate code deletion. Some results (3-FCNN) can still be run using the following steps:
+1. Install [TFHE v1.1](https://github.com/tfhe/tfhe) with the packaged SPQLIOS-FMA FFT engine.
+2. Install [REDCUFHE](https://github.com/TrustworthyComputing/REDcuFHE)
+3. Run the slurm script run.sh, be sure to change the network to one present in nets file
 
-## Cite this work
-This library was introduced in the REDsec paper, which presents a framework for
-privacy-preserving neural network inference and will appear in the NDSS
-Symposium 2023 ([Cryptology ePrint
-Archive](https://eprint.iacr.org/2021/1100.pdf)):
-```
-@inproceedings{folkerts2023redsec,
-    author       = {Lars Folkerts and Charles Gouert and Nektarios Georgios Tsoutsos},
-    title        = {{REDsec: Running Encrypted Discretized Neural Networks in Seconds}},
-    booktitle = {{Network and Distributed System Security Symposium (NDSS)}},
-    pages        = {1--17},
-    year         = {2023},
-}
-```
-
-<p align="center">
-    <img src="./logos/twc.png" height="20%" width="20%">
-</p>
-<h4 align="center">Trustworthy Computing Group</h4>
+### ELMO
+1. Install [OpenFHE](https://github.com/TrustworthyComputing/REDcuFHE) V1.0.4, the version number is very important.
+2. Train the model you want by running Model.py
+3. Using the generate weights jupyter notebook enocde the weights of your chosen model, the AlexNetSmallfc is currently encoded.
+4. Using the findingDeltas.py file find the ranges of values preceding relu activations in the chosen model, AlexNetSmallfc is currently encoded.
+5. Select the appropriate main.cpp file for your mode.
+6. replace the scale parameter in the convolution, fc and relu layers with the respective deltas found in finding deltas step.
+7. run run.sh to perform secure inference.
