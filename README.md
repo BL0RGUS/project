@@ -1,4 +1,4 @@
-# Comparison of Secure Inference Frameworksusing Homomorphic Encryption
+# Comparison of Secure Inference Frameworks using Homomorphic Encryption
 
 This repository implements 4  FHE powereed Secure Inference frameworks on two neural networks on MNIST and CIFAR-10
 
