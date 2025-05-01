@@ -1,0 +1,18 @@
+Keyset generated!
+Exporting keys to files...
+Finished exporting! Cleaning up...
+Key Generation: 4.608017605 seconds
+Dataset: MNIST
+Encrypting mnist_test.csv
+Image Encryption: 1.176984112 seconds
+/usr/bin/g++ -c -o net_enc.o net.cpp -I. -I../../../lib -Wall -g -fopenmp -I../../../include -L../../../lib -ltfhe-spqlios-fma -fopenmp  -fopenmp -DENCRYPTED
+/usr/bin/g++ -c -o main_enc.o main.cpp -I. -I../../../lib -Wall -g -fopenmp -I../../../include -L../../../lib -ltfhe-spqlios-fma -fopenmp  -fopenmp -DENCRYPTED
+/usr/bin/g++ -o cpu-encrypt.out ../../../lib/enc/*.o net_enc.o main_enc.o -I. -I../../../lib -Wall -g -fopenmp -I../../../include -L../../../lib -ltfhe-spqlios-fma -fopenmp  -DENCRYPTED
+./cpu-encrypt.out
+Instantiating network architecture...
+Running network...
+Result ctxts loaded into network_output.ctxt.
+CPU Inference: 9.645707015 seconds
+Classification Result: 0
+Classification Decryption: .906769015 seconds
+Total Time: 16.337477747 seconds
